@@ -140,7 +140,7 @@
         "@installed": true
     },
     "od": {
-        "@last-run-config": "path:NRP.mos"
+        "@last-run-config": "path:NRP_changed.mos"
     },
     "panecycle": {
         "json()": [
@@ -229,12 +229,14 @@
                             "path": "/NRP.mos",
                             "className": [
                                 "tab1",
-                                "focus"
+                                "focus",
+                                "changed"
                             ],
                             "document": {
-                                "changed": false,
+                                "changed": true,
                                 "meta": {
-                                    "timestamp": 1699626964965
+                                    "timestamp": 1699626964965,
+                                    "newfile": true
                                 },
                                 "filter": true,
                                 "title": "NRP.mos",

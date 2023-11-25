@@ -12,47 +12,80 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 305,
+        "@height": 301,
         "@maximized": "false",
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab2"
+                    "tab8",
+                    "tab7"
                 ]
             },
             "name": "pane1",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab2",
+                    "name": "tab7",
                     "path": "",
                     "className": [
-                        "tab2"
+                        "tab7"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1699636608569
+                            "timestamp": 1700646192835
                         },
                         "filter": true,
-                        "title": "NRP.mos - Stopped",
-                        "tooltip": "NRP.mos - Stopped",
+                        "title": "CheckingSolution.mos - Stopped",
+                        "tooltip": "CheckingSolution.mos - Stopped",
                         "output": {
-                            "id": "output877070",
-                            "width": 1144,
-                            "height": 273,
+                            "id": "output27844135",
+                            "width": 1141,
+                            "height": 269,
                             "config": {
                                 "runner": "Mosel",
-                                "command": "NRP.mos",
+                                "command": "CheckingSolution.mos",
                                 "debug": false,
                                 "toolbar": true,
-                                "env": {},
                                 "name": ""
                             }
                         }
                     },
                     "editorType": "output",
                     "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "tab8",
+                    "path": "",
+                    "className": [
+                        "tab8"
+                    ],
+                    "document": {
+                        "filter": true,
+                        "title": "NRP.mos - Stopped",
+                        "tooltip": "NRP.mos - Stopped",
+                        "output": {
+                            "id": "output63209139",
+                            "width": 1141,
+                            "height": 269,
+                            "scrollTop": 134.71875,
+                            "config": {
+                                "runner": "Mosel",
+                                "command": "NRP.mos",
+                                "debug": false,
+                                "toolbar": true,
+                                "name": ""
+                            }
+                        },
+                        "hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+                        "meta": {
+                            "timestamp": 1700739721877
+                        },
+                        "changed": false
+                    },
+                    "editorType": "output",
+                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -62,21 +95,21 @@
     },
     "ext": {
         "counters": {
-            "@ace": 3,
-            "@acestatus": 3,
+            "@ace": 1,
+            "@acestatus": 1,
             "@base-step-wizard": 2,
-            "@divider": 5,
-            "@document": 18,
-            "@editorswitch": 3,
+            "@divider": 4,
+            "@document": 5,
+            "@editorswitch": 1,
             "@fico.vdl.attributes-panel": 1,
             "@fico.vdl.palette-panel": 1,
             "@form": 4,
-            "@menu": 6,
-            "@menuitem": 15,
-            "@pane": 4,
-            "@session": 18,
-            "@tab": 17,
-            "@undoManager": 18,
+            "@menu": 3,
+            "@menuitem": 8,
+            "@pane": 3,
+            "@session": 4,
+            "@tab": 1,
+            "@undoManager": 5,
             "@welcome": 1
         }
     },
@@ -92,8 +125,8 @@
             "@fullscreen": false,
             "@maximized": false,
             "@minimized": false,
-            "@position": "218:202",
-            "@size": "1376:796"
+            "@position": "12:29",
+            "@size": "1373:748"
         }
     },
     "menus": {
@@ -103,16 +136,12 @@
         "@installed": true
     },
     "od": {
-        "@last-run-config": "path:NRP.mos"
+        "@last-run-config": "path:CheckingSolution.mos"
     },
     "panecycle": {
         "json()": [
-            "tab4",
-            "tab14",
-            "tab2",
-            "tab14",
-            "tab9",
-            "tab8"
+            "tab3",
+            "tab7"
         ]
     },
     "panels": {
@@ -160,392 +189,172 @@
         }
     },
     "projecttree": {
-        "@scrollpos": -10,
+        "@scrollpos": 518,
         "expanded": {
             "json()": [
-                "/"
+                "/",
+                "/Instance_dats",
+                "/RosterSolutions"
             ]
         }
     },
     "recentfiles": {
-        "json()": [
-            {
-                "type": "tab",
-                "name": "tab13",
-                "path": "/Instance_txts/Instance4.txt",
-                "className": [
-                    "tab13"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1408022152000
-                    },
-                    "filter": true,
-                    "title": "Instance4.txt",
-                    "tooltip": "/Instance_txts/Instance4.txt",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
-            },
-            {
-                "type": "tab",
-                "name": "tab11",
-                "path": "/Instance_txts/Instance2.txt",
-                "className": [
-                    "tab11"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1408019158000
-                    },
-                    "filter": true,
-                    "title": "Instance2.txt",
-                    "tooltip": "/Instance_txts/Instance2.txt",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
-            },
-            {
-                "type": "tab",
-                "name": "tab10",
-                "path": "/Instance_dats/Instance2.dat",
-                "className": [
-                    "tab10"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1699636711139
-                    },
-                    "filter": true,
-                    "title": "Instance2.dat",
-                    "tooltip": "/Instance_dats/Instance2.dat",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
-            },
-            {
-                "type": "tab",
-                "name": "tab5",
-                "path": "/Instance_dats/Instance4.dat",
-                "className": [
-                    "tab5"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1699636728059
-                    },
-                    "filter": true,
-                    "title": "Instance4.dat",
-                    "tooltip": "/Instance_dats/Instance4.dat",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
-            },
-            {
-                "type": "tab",
-                "name": "tab3",
-                "path": "/Instance_dats/Instance5.dat",
-                "className": [
-                    "tab3"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1699636734023
-                    },
-                    "filter": true,
-                    "title": "Instance5.dat",
-                    "tooltip": "/Instance_dats/Instance5.dat",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
-            },
-            {
-                "type": "tab",
-                "name": "tab12",
-                "path": "/Instance_txts/Instance5.txt",
-                "className": [
-                    "tab12"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1408022388000
-                    },
-                    "filter": true,
-                    "title": "Instance5.txt",
-                    "tooltip": "/Instance_txts/Instance5.txt",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
-            },
-            {
-                "type": "tab",
-                "name": "tab6",
-                "path": "/Instance_dats/Instance1.dat",
-                "className": [
-                    "tab6"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1699636451429
-                    },
-                    "filter": true,
-                    "title": "Instance1.dat",
-                    "tooltip": "/Instance_dats/Instance1.dat",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
-            },
-            {
-                "type": "tab",
-                "name": "tab7",
-                "path": "/Instance_txts/Instance3.txt",
-                "className": [
-                    "tab7"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1408019470000
-                    },
-                    "filter": true,
-                    "title": "Instance3.txt",
-                    "tooltip": "/Instance_txts/Instance3.txt",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
-            }
-        ]
+        "json()": []
     },
     "search-history": {
+        "replace": {
+            "json()": [
+                "check_status := \"All good :)\"",
+                "check_status := \"All good\"",
+                "writeln",
+                "check_status := \"All good\""
+            ]
+        },
         "search": {
             "json()": [
+                "writeln\n      writeln(\"HC",
+                "write(\" \")",
+                "size",
+                "length",
                 "MinConsecutiveDaysOff"
             ]
         }
     },
     "tabs": {
         "json()": {
-            "focus": "/Instance_dats/Instance6.dat",
+            "focus": "/CheckingSolution.mos",
+            "meta": {
+                "accessList": [
+                    "tab3",
+                    "tab1",
+                    "tab0"
+                ]
+            },
+            "name": "pane0",
             "nodes": [
                 {
-                    "type": "pane",
-                    "name": "pane0",
-                    "nodes": [
-                        {
-                            "type": "tab",
-                            "name": "tab0",
-                            "path": "",
-                            "className": [
-                                "tab0"
-                            ],
-                            "document": {
-                                "changed": false,
-                                "meta": {
-                                    "welcome": true,
-                                    "newOnError": true,
-                                    "timestamp": 1699636582697
-                                },
-                                "filter": true,
-                                "title": "Welcome",
-                                "welcome": {}
-                            },
-                            "editorType": "welcome",
-                            "active": false
-                        },
-                        {
-                            "type": "tab",
-                            "name": "tab4",
-                            "path": "/Instance_dats/Instance6.dat",
-                            "className": [
-                                "tab4",
-                                "focus"
-                            ],
-                            "document": {
-                                "changed": false,
-                                "meta": {
-                                    "timestamp": 1699639503114
-                                },
-                                "filter": true,
-                                "title": "Instance6.dat",
-                                "tooltip": "/Instance_dats/Instance6.dat",
-                                "ace": {}
-                            },
-                            "editorType": "ace",
-                            "active": true
-                        },
-                        {
-                            "type": "tab",
-                            "name": "tab1",
-                            "path": "/NRP.mos",
-                            "className": [
-                                "tab1"
-                            ],
-                            "document": {
-                                "changed": false,
-                                "meta": {
-                                    "ignoreState": 0,
-                                    "timestamp": 1700305022330
-                                },
-                                "filter": true,
-                                "title": "NRP.mos",
-                                "tooltip": "/NRP.mos",
-                                "ace": {}
-                            },
-                            "editorType": "ace",
-                            "active": false
-                        },
-                        {
-                            "type": "tab",
-                            "name": "tab16",
-                            "path": "/Instance_txts/Instance7.txt",
-                            "className": [
-                                "tab16"
-                            ],
-                            "document": {
-                                "changed": false,
-                                "meta": {
-                                    "timestamp": 1408022946000
-                                },
-                                "filter": true,
-                                "title": "Instance7.txt",
-                                "tooltip": "/Instance_txts/Instance7.txt",
-                                "ace": {}
-                            },
-                            "editorType": "ace",
-                            "active": false
-                        }
+                    "type": "tab",
+                    "name": "tab3",
+                    "path": "/CheckingSolution.mos",
+                    "className": [
+                        "tab3",
+                        "focus"
                     ],
-                    "skin": "editor_tab",
-                    "skinset": "default",
-                    "meta": {
-                        "accessList": [
-                            "tab4",
-                            "tab1",
-                            "tab16",
-                            "tab7",
-                            "tab0"
-                        ]
-                    }
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1700922544796
+                        },
+                        "filter": true,
+                        "title": "CheckingSolution.mos",
+                        "tooltip": "/CheckingSolution.mos",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
                 },
                 {
-                    "type": "pane",
-                    "name": "pane3",
-                    "nodes": [
-                        {
-                            "type": "tab",
-                            "name": "tab8",
-                            "path": "/Instance_dats/Instance3.dat",
-                            "className": [
-                                "tab8"
-                            ],
-                            "document": {
-                                "changed": false,
-                                "meta": {
-                                    "timestamp": 1699636717590
-                                },
-                                "filter": true,
-                                "title": "Instance3.dat",
-                                "tooltip": "/Instance_dats/Instance3.dat",
-                                "ace": {}
-                            },
-                            "editorType": "ace",
-                            "active": false
-                        },
-                        {
-                            "type": "tab",
-                            "name": "tab9",
-                            "path": "/Initial solution/NRP_changed.mos",
-                            "className": [
-                                "tab9"
-                            ],
-                            "document": {
-                                "changed": false,
-                                "meta": {
-                                    "timestamp": 1700067819204
-                                },
-                                "filter": true,
-                                "title": "NRP_changed.mos",
-                                "tooltip": "/Initial solution/NRP_changed.mos",
-                                "ace": {}
-                            },
-                            "editorType": "ace",
-                            "active": false
-                        },
-                        {
-                            "type": "tab",
-                            "name": "tab14",
-                            "path": "/Instance_txts/Instance6.txt",
-                            "className": [
-                                "tab14"
-                            ],
-                            "document": {
-                                "changed": false,
-                                "meta": {
-                                    "timestamp": 1408022818000
-                                },
-                                "filter": true,
-                                "title": "Instance6.txt",
-                                "tooltip": "/Instance_txts/Instance6.txt",
-                                "ace": {}
-                            },
-                            "editorType": "ace",
-                            "active": true
-                        },
-                        {
-                            "type": "tab",
-                            "name": "tab15",
-                            "path": "/Instance_txts/Instance10.txt",
-                            "className": [
-                                "tab15"
-                            ],
-                            "document": {
-                                "changed": false,
-                                "meta": {
-                                    "timestamp": 1408024702000
-                                },
-                                "filter": true,
-                                "title": "Instance10.txt",
-                                "tooltip": "/Instance_txts/Instance10.txt",
-                                "ace": {}
-                            },
-                            "editorType": "ace",
-                            "active": false
-                        }
+                    "type": "tab",
+                    "name": "tab1",
+                    "path": "/NRP.mos",
+                    "className": [
+                        "tab1"
                     ],
-                    "width": "47.72727272727273%",
-                    "skin": "editor_tab",
-                    "skinset": "default",
-                    "meta": {
-                        "accessList": [
-                            "tab14",
-                            "tab15",
-                            "tab9",
-                            "tab8"
-                        ]
-                    }
+                    "document": {
+                        "filter": true,
+                        "title": "NRP.mos",
+                        "tooltip": "/NRP.mos",
+                        "ace": {
+                            "folds": [],
+                            "scrolltop": 0,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 4,
+                                    "column": 36
+                                },
+                                "end": {
+                                    "row": 4,
+                                    "column": 36
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": {
+                                "row": 34,
+                                "state": "start",
+                                "mode": "plugins/fico.ide.language.mosel/mode/mosel"
+                            }
+                        },
+                        "hash": "f52bcc7175078063a56d0a3c56fffc6c35029ce6",
+                        "meta": {
+                            "ignoreState": 0,
+                            "timestamp": 1700920357426
+                        },
+                        "changed": false
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab0",
+                    "path": "/Instance_dats/Instance9.dat",
+                    "className": [
+                        "tab0"
+                    ],
+                    "document": {
+                        "filter": true,
+                        "title": "Instance9.dat",
+                        "tooltip": "/Instance_dats/Instance9.dat",
+                        "ace": {
+                            "folds": [],
+                            "scrolltop": 159,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 21,
+                                    "column": 7
+                                },
+                                "end": {
+                                    "row": 21,
+                                    "column": 7
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": {
+                                "row": 36,
+                                "state": "start",
+                                "mode": "ace/mode/text"
+                            }
+                        },
+                        "hash": "495b6780c05488fe4714de1177fe907864a42efe",
+                        "meta": {
+                            "timestamp": 1700915166126
+                        },
+                        "changed": false
+                    },
+                    "editorType": "ace",
+                    "active": false
                 }
             ],
-            "type": "hsplitbox"
+            "skin": "editor_tab",
+            "skinset": "default",
+            "type": "pane"
         }
     },
     "tree_selection": {
         "json()": [
-            "/Instance_txts/Instance7.txt"
+            "/Instance_dats/Instance9.dat"
         ]
     },
     "welcome": {

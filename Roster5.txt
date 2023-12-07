@@ -15,7 +15,7 @@ M, , ,L,L,L, , , , ,E,E,E,E,L, , , ,E,E,E,E,L,L, , , ,L,L
 N, ,E,E,E,E,E,E, , , , ,E,E,E,E,E, , , ,E,E,E,E,E,E, , , 
 O,L,L, , , ,L,L,L,L,L,L, , , , ,L,L,L,L,L,L, , , ,E,E,E,E
 P, , , ,E,E,E,L,L, , , ,E,E,E,E,E, , , ,E,E,E,E,E,E, , , 
-Problem status: Unfinished,,,,,,,,,,,,,,,,,,,,,,,,,,,,
- ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-The minimised penalty = 1146,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Time elapsed: 18000.1s.,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Problem status: Unfinished,
+ ,
+The minimised penalty = 1146,
+Time elapsed: 18000.1s.,

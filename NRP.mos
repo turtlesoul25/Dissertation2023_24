@@ -1,6 +1,6 @@
 model nurse_rostering
   uses "mmxprs", "mmsystem"
-  setparam("XPRS_MAXTIME", 600)
+  setparam("XPRS_MAXTIME", 27200)
   ! setparam("XPRS_enummaxsol", 1)
   ! stopoptimise(XPRS_STOP_SOLLIMIT)
   starttime:= gettime
@@ -36,13 +36,13 @@ model nurse_rostering
   end-declarations
 
   ! Choose a dataset
-  dataset := 14
+  dataset := 1
 
   datafname := jointext(["Instance_dats/Instance", dataset, ".dat"], "")
   ! csvfname := jointext(["RosterSolutions/NurseRoster", dataset, ".csv"], "")
   csvfname := jointext(["NurseRoster", dataset, ".csv"], "")
 
-  initializations from "model.dat"
+  initializations from datafname
     NurseID Days Weekends PlanningHorizon NumWeekends ShiftID  DaysOff ShiftLength MaxShifts
     MaxTotalMinutes MinTotalMinutes MaxConsecutiveShifts MinConsecutiveShifts MinConsecutiveDaysOff
     MaxWeekends PreferredCoverage UnderstaffedPenalty OverstaffedPenalty ForbiddenShifts
@@ -164,12 +164,23 @@ model nurse_rostering
     CoverageCS(d,t) := (sum(i in NurseID) ShiftAssigned(i,d,t)) - NursesAbovePreferredCoverage(d,t) + NursesBelowPreferredCoverage(d,t) = PreferredCoverage(d,t)
   end-do
 
+! Solution printing
+ procedure printsol
+  if gettime - starttime > 0 then
+    writeln("Solution ", getparam("XPRS_MIPSOLS"))
+    writeln("Total penalty: ", getsol(TotalPenalty))
+    writeln("Lower bound: ", getlb(TotalPenalty))
+  end-if
+ end-procedure
 
 
+setcallback(XPRS_CB_INTSOL, ->printsol)
 
 minimise(TotalPenalty)
 endtime:= gettime
 writeln("End running model for dataset ", dataset)
+
+
 
 
 
@@ -187,25 +198,6 @@ case getprobstat of
 end-case
 writeln("Problem status: ", status)
 end-procedure
-
-(!procedure print_sol_status
-declarations
-  sol_status: string
-end-declarations
-case getparam("MIPSTATUS") of
-  XPRS_MIP_NOT_LOADED:     sol_status:="Problem has not been loaded"
-  XPRS_MIP_LP_NOT_OPTIMAL: sol_status:="Initial continuous relaxation has not been solved and no integer solution has been found"
-  XPRS_MIP_LP_OPTIMAL:     sol_status:="Initial continuous relaxation has been solved and no integer solution has been found"
-  XPRS_MIP_NO_SOL_FOUND:   sol_status:="No integer solution found"
-  XPRS_MIP_SOLUTION:       sol_status:="An integer solution has been found"
-  XPRS_MIP_INFEAS:         sol_status:="No integer solution found"
-  XPRS_MIP_OPTIMAL:        sol_status:="Optimal integer solution found"
-  XPRS_MIP_UNBOUNDED:      sol_status:="Initial continuous relaxation was found to be unbounded. A solution may have been found"
-  else sol_status:="???"
-end-case
-writeln("Solution status: ", sol_status)
-end-procedure!)
-
 
 
 
@@ -232,23 +224,6 @@ forall (i in NurseID) do
     end-do
   writeln
 end-do
-
-(!writeln("Weekends")
-write("       | ")
-forall(w in Weekends) write(w, " | ")
-writeln
-forall(i in NurseID) do
-  write("Nurse ", i, "| ")
-  forall(w in Weekends) do
-      if getsol(WeekendShiftAssigned(i,w)) > 0 then
-        write(getsol(sum(t in ShiftID) ShiftAssigned(i,7*w-1,t))+getsol( sum(t in ShiftID)ShiftAssigned(i,7*w,t)), " | ")
-      else
-        write(" ", " | ")
-      end-if
-  end-do
-  writeln
-end-do!)
-
 writeln
 
 

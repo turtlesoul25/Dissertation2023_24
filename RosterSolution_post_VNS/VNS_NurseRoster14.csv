@@ -20,18 +20,14 @@ R,E,E,E,N,N, , , , ,E,E,E,E,E, , ,D,D,N, , ,D,D,D,D,E, , , , , , , ,N,N, , , ,E,
 S, ,E,D,D,E,N, , ,E,L,N, , ,E,E,E,E,D, , , ,E,D,N, , , , ,D,D,D,N, , ,E,E, , ,E,N, , 
 T,D,D,D,D,D, , , ,D,D,D,D, , , , ,L,L,L,L,L, , ,D,D,D, , , ,D,L, , , ,D,L, , ,L,L,L,L
 U, , , ,E,D,D,D,D,L, , , , , ,L,L,L,L,L, , , ,D,E,E,L, , , ,L,L,L,L,L,L, , , ,L,L,L,L
-V,E,L,L,L,L, , , ,D,E,D,D, , , , ,D,E,E,E,D,E, , , , ,E,D,D,L, , , , , , ,E,E,E,D,E,D
-W,L,L,L,L,L, , , , , , , ,D,L,N,N,N,N, , , ,L,L,L,L,L, , , , , ,L,L,L,L,L, , , ,L,L,N
+V,E,L,L,L,L, , , ,D,E,D,D, , , , ,D,E,E,E,E,E, , , , ,E,D,D,L, , , , , , ,E,E,E,D,E,D
+W,L,L,L,L,L, , , , , , , ,L,L,N,N,N,N, , , ,L,L,L,L,L, , , , , ,L,L,L,L,L, , , ,L,L,N
 X,N, , , , ,E,E,E,E,N,N, , , ,E,E,E,E,N, , , ,D,E,E,E,E,N, , , , , ,D,E,E,E,E,D, , , 
 Y, ,E,E,D,D,E,E, , , , , , , ,E,E,E,E,D, , , ,E,E,D,D,E,E, , , ,E,E, , , ,D,D,E,E,E,E
-Z,E, , , ,E,E,E,D,E, , , ,E,D,N,N,N,N, , , ,E,E,E,E, , , ,E,E,E,E,E, , , , , , ,E,E,N
+Z, , , ,E,E,E,E,D,E, , , ,E,D,N,N,N,N, , , ,E,E,E,E, , , ,E,E,E,E,E, , , , , , ,E,E,N
 AA, ,L,L,L,L,L,N, , , ,L,L,L,L,L, , , ,D,N,N,N,N, , , , , ,L,L,L,L,L, , , ,D,D,L, , , 
-AB, , , ,D, , , , , , ,D,E, , , ,D,E, , ,E,E, , , , , ,E,E,E,E, , , ,E,E, , , , , , , 
+AB, , , ,D, , , , , , ,D,E, , , ,D,E, , ,E,D, , , , , ,E,E,E,E, , , ,E,E, , , , , , , 
 AC, , , ,N, , , , , ,E,E,D,L,L, , ,N, , ,L,L, , , , , ,L,L, , ,D,D, , , , , , , , , , 
-AD, , ,E,N, , , , , ,E,E,E,L,L, , , , , , , , , , , , ,L,L,L,N, , , ,D,E, , , , , , , 
+AD, , ,E,N, , , , , ,E,E,E,D,L, , , , , , , , , , , , ,L,L,L,N, , , ,D,E, , , , , , , 
 AE, , , ,E, , , , , , ,D,D,D,D, , , ,D,L,N,N, , , , , , , , , , , , , , , , ,E,E,E,E, 
-AF, , , ,E,E, , , , , , , ,D,E, , ,E,E,E,E,E, , , , , ,D,D, , , ,E, , , , , , , ,E, , 
-Problem status: Unfinished,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
- ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-The minimised penalty = 1474,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Time elapsed: 18000.1s.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+AF,E, , , ,E, , , , , , , ,D,E, , ,E,E,E,E,E, , , , , ,D,D, , , ,E, , , , , , , ,E, , 

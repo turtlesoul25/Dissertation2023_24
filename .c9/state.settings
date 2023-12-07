@@ -12,7 +12,7 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 301,
+        "@height": 331,
         "@maximized": "false",
         "json()": {
             "meta": {
@@ -40,8 +40,8 @@
                         "tooltip": "CheckingSolution.mos - Stopped",
                         "output": {
                             "id": "output27844135",
-                            "width": 1141,
-                            "height": 269,
+                            "width": 968,
+                            "height": 299,
                             "config": {
                                 "runner": "Mosel",
                                 "command": "CheckingSolution.mos",
@@ -52,40 +52,67 @@
                         }
                     },
                     "editorType": "output",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
                     "name": "tab8",
                     "path": "",
                     "className": [
-                        "tab8"
+                        "tab8",
+                        "focus",
+                        "connecting"
                     ],
                     "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1700739721877
+                        },
                         "filter": true,
                         "title": "NRP.mos - Stopped",
                         "tooltip": "NRP.mos - Stopped",
                         "output": {
                             "id": "output63209139",
-                            "width": 1141,
-                            "height": 269,
-                            "scrollTop": 134.71875,
+                            "width": 968,
+                            "height": 299,
                             "config": {
                                 "runner": "Mosel",
                                 "command": "NRP.mos",
                                 "debug": false,
                                 "toolbar": true,
                                 "name": ""
+                            },
+                            "running": {
+                                "name": "output63209139",
+                                "running": 1,
+                                "runner": [
+                                    {
+                                        "caption": "Mosel",
+                                        "cmd": [
+                                            "/Applications/FICO Xpress/Xpress Workbench.app/Contents/Resources/.c9/node/bin/node",
+                                            "/Applications/FICO Xpress/Xpress Workbench.app/Contents/Resources/.c9/node_modules/mosel-runner/bin/mosel-runner",
+                                            "run",
+                                            "${debug?--debug=6167}",
+                                            "--basedir",
+                                            "$project_path",
+                                            "$file",
+                                            "--stack-trace=20",
+                                            "$args"
+                                        ],
+                                        "cmdCleanup": [
+                                            "true"
+                                        ],
+                                        "debugger": "mosel",
+                                        "debugport": 6167,
+                                        "selector": "\\.mos$",
+                                        "$builtin": true
+                                    }
+                                ]
                             }
-                        },
-                        "hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
-                        "meta": {
-                            "timestamp": 1700739721877
-                        },
-                        "changed": false
+                        }
                     },
                     "editorType": "output",
-                    "active": false
+                    "active": true
                 }
             ],
             "skin": "editor_tab",
@@ -99,7 +126,7 @@
             "@acestatus": 1,
             "@base-step-wizard": 2,
             "@divider": 4,
-            "@document": 5,
+            "@document": 7,
             "@editorswitch": 1,
             "@fico.vdl.attributes-panel": 1,
             "@fico.vdl.palette-panel": 1,
@@ -107,9 +134,9 @@
             "@menu": 3,
             "@menuitem": 8,
             "@pane": 3,
-            "@session": 4,
-            "@tab": 1,
-            "@undoManager": 5,
+            "@session": 7,
+            "@tab": 5,
+            "@undoManager": 7,
             "@welcome": 1
         }
     },
@@ -125,8 +152,8 @@
             "@fullscreen": false,
             "@maximized": false,
             "@minimized": false,
-            "@position": "12:29",
-            "@size": "1373:748"
+            "@position": "567:70",
+            "@size": "1200:729"
         }
     },
     "menus": {
@@ -136,12 +163,12 @@
         "@installed": true
     },
     "od": {
-        "@last-run-config": "path:CheckingSolution.mos"
+        "@last-run-config": "path:NRP.mos"
     },
     "panecycle": {
         "json()": [
-            "tab3",
-            "tab7"
+            "tab8",
+            "tab1"
         ]
     },
     "panels": {
@@ -189,12 +216,13 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 518,
+        "@scrollpos": -10,
         "expanded": {
             "json()": [
                 "/",
                 "/Instance_dats",
-                "/RosterSolutions"
+                "/RosterSolutions",
+                "/Instance_txts"
             ]
         }
     },
@@ -222,12 +250,11 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/CheckingSolution.mos",
+            "focus": "tab8",
             "meta": {
                 "accessList": [
-                    "tab3",
                     "tab1",
-                    "tab0"
+                    "tab3"
                 ]
             },
             "name": "pane0",
@@ -237,13 +264,12 @@
                     "name": "tab3",
                     "path": "/CheckingSolution.mos",
                     "className": [
-                        "tab3",
-                        "focus"
+                        "tab3"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1700922544796
+                            "timestamp": 1701907153188
                         },
                         "filter": true,
                         "title": "CheckingSolution.mos",
@@ -251,7 +277,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
@@ -261,90 +287,18 @@
                         "tab1"
                     ],
                     "document": {
+                        "changed": false,
+                        "meta": {
+                            "ignoreState": 0,
+                            "timestamp": 1701856070746
+                        },
                         "filter": true,
                         "title": "NRP.mos",
                         "tooltip": "/NRP.mos",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 0,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 4,
-                                    "column": 36
-                                },
-                                "end": {
-                                    "row": 4,
-                                    "column": 36
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 34,
-                                "state": "start",
-                                "mode": "plugins/fico.ide.language.mosel/mode/mosel"
-                            }
-                        },
-                        "hash": "f52bcc7175078063a56d0a3c56fffc6c35029ce6",
-                        "meta": {
-                            "ignoreState": 0,
-                            "timestamp": 1700920357426
-                        },
-                        "changed": false
+                        "ace": {}
                     },
                     "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab0",
-                    "path": "/Instance_dats/Instance9.dat",
-                    "className": [
-                        "tab0"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "Instance9.dat",
-                        "tooltip": "/Instance_dats/Instance9.dat",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 159,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 21,
-                                    "column": 7
-                                },
-                                "end": {
-                                    "row": 21,
-                                    "column": 7
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 36,
-                                "state": "start",
-                                "mode": "ace/mode/text"
-                            }
-                        },
-                        "hash": "495b6780c05488fe4714de1177fe907864a42efe",
-                        "meta": {
-                            "timestamp": 1700915166126
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
+                    "active": true
                 }
             ],
             "skin": "editor_tab",
@@ -354,7 +308,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/Instance_dats/Instance9.dat"
+            "/Instance_txts/Instance15.txt"
         ]
     },
     "welcome": {

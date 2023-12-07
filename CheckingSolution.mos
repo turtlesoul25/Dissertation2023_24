@@ -36,12 +36,14 @@ model checking_solution
 
 
   ! Choose a dataset
-  dataset := 14
+  dataset := 2
 
   datafname := jointext(["Instance_dats/Instance", dataset, ".dat"], "")
   ! csvfname := jointext(["mmsheet.csv:RosterSolution_post_VNS/VNS_NurseRoster", dataset, ".csv"], "")
-  csvfname := jointext(["mmsheet.csv:RosterSolutions/NurseRoster", dataset, ".csv"], "")
+  ! csvfname := jointext(["mmsheet.csv:RosterSolutions/NurseRoster", dataset, ".csv"], "")
+  csvfname := jointext(["mmsheet.csv:Heuristic_initial_solution/NurseRoster", dataset, ".csv"], "")
 
+writeln
 writeln("Checking ", csvfname)
 
 
@@ -53,10 +55,10 @@ writeln("Checking ", csvfname)
   end-initializations
 
   ! Guide for naming cellranges: ending cell range value
-  ! (Instance) 1: O9, 2: O15, 3: O21, 4: AC11, 5: AC17, 6: AC19, 7: AC21, 8: , 9:, 10: AC41, 11: AC51, 12: AC61, 13:AC121, 16: BE21
+  ! (Instance) 1: O9, 2: O15, 3: O21, 4: AC11, 5: AC17, 6: AC19, 7: AC21, 8: , 9:, 10: AC41, 11: AC51, 12: AC61, 13:AC121, 16: BE21, 19:CG41
 
-  initializations from "mmsheet.csv:NewRoster14.csv"
-    Roster as "noindex;[B2:AQ33]"
+  initializations from csvfname
+    Roster as "noindex;[B2:CG121]"
   end-initializations
 
 
@@ -162,7 +164,7 @@ writeln("Checking ", csvfname)
         check_status := "All good :)"
       else
         check_status := "Not good :("
-        writeln("HC2: failed")
+        writeln("HC2: failed for Nurse ",i, " around day ", d)
         writeln
       end-if
   end-do

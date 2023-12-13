@@ -1,5 +1,5 @@
 model nurse_rostering
-  uses "mmxprs", "mmsystem"
+  uses "mmxprs", "mmsystem", "kalis"
   setparam("XPRS_MAXTIME", 27200)
   ! setparam("XPRS_enummaxsol", 1)
   ! stopoptimise(XPRS_STOP_SOLLIMIT)
@@ -36,7 +36,7 @@ model nurse_rostering
   end-declarations
 
   ! Choose a dataset
-  dataset := 1
+  dataset := 2
 
   datafname := jointext(["Instance_dats/Instance", dataset, ".dat"], "")
   ! csvfname := jointext(["RosterSolutions/NurseRoster", dataset, ".csv"], "")
@@ -169,7 +169,7 @@ model nurse_rostering
   if gettime - starttime > 0 then
     writeln("Solution ", getparam("XPRS_MIPSOLS"))
     writeln("Total penalty: ", getsol(TotalPenalty))
-    writeln("Lower bound: ", getlb(TotalPenalty))
+    ! writeln("Lower bound: ", getlb(TotalPenalty))
   end-if
  end-procedure
 
@@ -179,7 +179,6 @@ setcallback(XPRS_CB_INTSOL, ->printsol)
 minimise(TotalPenalty)
 endtime:= gettime
 writeln("End running model for dataset ", dataset)
-
 
 
 

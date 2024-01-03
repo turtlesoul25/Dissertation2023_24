@@ -48,33 +48,6 @@
                                 "debug": false,
                                 "toolbar": true,
                                 "name": ""
-                            },
-                            "running": {
-                                "name": "output27844135",
-                                "running": 1,
-                                "runner": [
-                                    {
-                                        "caption": "Mosel",
-                                        "cmd": [
-                                            "/Applications/FICO Xpress/Xpress Workbench.app/Contents/Resources/.c9/node/bin/node",
-                                            "/Applications/FICO Xpress/Xpress Workbench.app/Contents/Resources/.c9/node_modules/mosel-runner/bin/mosel-runner",
-                                            "run",
-                                            "${debug?--debug=6167}",
-                                            "--basedir",
-                                            "$project_path",
-                                            "$file",
-                                            "--stack-trace=20",
-                                            "$args"
-                                        ],
-                                        "cmdCleanup": [
-                                            "true"
-                                        ],
-                                        "debugger": "mosel",
-                                        "debugport": 6167,
-                                        "selector": "\\.mos$",
-                                        "$builtin": true
-                                    }
-                                ]
                             }
                         }
                     },
@@ -89,10 +62,6 @@
                         "tab8"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1700739721877
-                        },
                         "filter": true,
                         "title": "NRP.mos - Stopped",
                         "tooltip": "NRP.mos - Stopped",
@@ -100,6 +69,7 @@
                             "id": "output63209139",
                             "width": 968,
                             "height": 299,
+                            "scrollTop": 1389.34375,
                             "config": {
                                 "runner": "Mosel",
                                 "command": "NRP.mos",
@@ -107,7 +77,12 @@
                                 "toolbar": true,
                                 "name": ""
                             }
-                        }
+                        },
+                        "hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+                        "meta": {
+                            "timestamp": 1700739721877
+                        },
+                        "changed": false
                     },
                     "editorType": "output",
                     "active": false
@@ -123,19 +98,19 @@
             "@ace": 1,
             "@acestatus": 1,
             "@base-step-wizard": 2,
-            "@divider": 9,
-            "@document": 6,
+            "@divider": 4,
+            "@document": 4,
             "@editorswitch": 1,
             "@fico.mosel.debugger.array.model": 2,
             "@fico.vdl.attributes-panel": 1,
             "@fico.vdl.palette-panel": 1,
             "@form": 4,
-            "@menu": 10,
-            "@menuitem": 31,
+            "@menu": 3,
+            "@menuitem": 8,
             "@pane": 3,
-            "@session": 6,
+            "@session": 3,
             "@tab": 3,
-            "@undoManager": 6,
+            "@undoManager": 4,
             "@welcome": 1
         }
     },
@@ -151,8 +126,8 @@
             "@fullscreen": false,
             "@maximized": false,
             "@minimized": false,
-            "@position": "-195:53",
-            "@size": "1200:730"
+            "@position": "164:42",
+            "@size": "1200:702"
         }
     },
     "menus": {
@@ -270,7 +245,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1704028098620
+                            "timestamp": 1704236447897
                         },
                         "filter": true,
                         "title": "CheckingSolution.mos",
@@ -288,15 +263,41 @@
                         "tab1"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "ignoreState": 0,
-                            "timestamp": 1702209977561
-                        },
                         "filter": true,
                         "title": "NRP.mos",
                         "tooltip": "/NRP.mos",
-                        "ace": {}
+                        "ace": {
+                            "folds": [],
+                            "scrolltop": 357,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 38,
+                                    "column": 14
+                                },
+                                "end": {
+                                    "row": 38,
+                                    "column": 14
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": {
+                                "row": 53,
+                                "state": "start",
+                                "mode": "plugins/fico.ide.language.mosel/mode/mosel"
+                            }
+                        },
+                        "hash": "4f1993f75c163a04bdf1d9c017aee3bf4fe0f392",
+                        "meta": {
+                            "ignoreState": 0,
+                            "timestamp": 1702209977559
+                        },
+                        "changed": false
                     },
                     "editorType": "ace",
                     "active": false

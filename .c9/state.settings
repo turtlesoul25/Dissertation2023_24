@@ -62,14 +62,17 @@
                         "tab8"
                     ],
                     "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1700739721877
+                        },
                         "filter": true,
-                        "title": "NRP.mos - Stopped",
-                        "tooltip": "NRP.mos - Stopped",
+                        "title": "NRP.mos - Idle",
+                        "tooltip": "NRP.mos - Idle",
                         "output": {
                             "id": "output63209139",
                             "width": 968,
                             "height": 299,
-                            "scrollTop": 1389.34375,
                             "config": {
                                 "runner": "Mosel",
                                 "command": "NRP.mos",
@@ -77,12 +80,7 @@
                                 "toolbar": true,
                                 "name": ""
                             }
-                        },
-                        "hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
-                        "meta": {
-                            "timestamp": 1700739721877
-                        },
-                        "changed": false
+                        }
                     },
                     "editorType": "output",
                     "active": false
@@ -108,7 +106,7 @@
             "@menu": 3,
             "@menuitem": 8,
             "@pane": 3,
-            "@session": 3,
+            "@session": 4,
             "@tab": 3,
             "@undoManager": 4,
             "@welcome": 1
@@ -125,8 +123,8 @@
         "window": {
             "@fullscreen": false,
             "@maximized": false,
-            "@minimized": false,
-            "@position": "164:42",
+            "@minimized": true,
+            "@position": "461:110",
             "@size": "1200:702"
         }
     },
@@ -245,7 +243,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1704236447897
+                            "timestamp": 1704484778006
                         },
                         "filter": true,
                         "title": "CheckingSolution.mos",
@@ -263,41 +261,15 @@
                         "tab1"
                     ],
                     "document": {
-                        "filter": true,
-                        "title": "NRP.mos",
-                        "tooltip": "/NRP.mos",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 357,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 38,
-                                    "column": 14
-                                },
-                                "end": {
-                                    "row": 38,
-                                    "column": 14
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 53,
-                                "state": "start",
-                                "mode": "plugins/fico.ide.language.mosel/mode/mosel"
-                            }
-                        },
-                        "hash": "4f1993f75c163a04bdf1d9c017aee3bf4fe0f392",
+                        "changed": false,
                         "meta": {
                             "ignoreState": 0,
                             "timestamp": 1702209977559
                         },
-                        "changed": false
+                        "filter": true,
+                        "title": "NRP.mos",
+                        "tooltip": "/NRP.mos",
+                        "ace": {}
                     },
                     "editorType": "ace",
                     "active": false

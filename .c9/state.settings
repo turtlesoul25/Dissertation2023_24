@@ -123,8 +123,8 @@
         "window": {
             "@fullscreen": false,
             "@maximized": false,
-            "@minimized": true,
-            "@position": "461:110",
+            "@minimized": false,
+            "@position": "582:30",
             "@size": "1200:702"
         }
     },

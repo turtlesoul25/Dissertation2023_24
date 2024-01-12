@@ -36,13 +36,13 @@ model checking_solution
 
 
   ! Choose a dataset
-  dataset := 12
+  dataset := 24
 
   datafname := jointext(["Instance_dats/Instance", dataset, ".dat"], "")
   ! csvfname := jointext(["mmsheet.csv:RosterSolution_post_VNS/VNS_NurseRoster", dataset, ".csv"], "")
   ! csvfname := jointext(["mmsheet.csv:RosterSolutions/NurseRoster", dataset, ".csv"], "")
   ! csvfname := jointext(["mmsheet.csv:Heuristic_initial_solution/NurseRoster", dataset, ".csv"], "")
-  csvfname := jointext(["mmsheet.csv:Heuristic_initial_soln/NurseRoster", dataset, ".csv"], "")
+  csvfname := jointext(["mmsheet.csv:Heuristic_initial_sols/NurseRoster", dataset, ".csv"], "")
 
 writeln
 writeln("Checking ", csvfname)
@@ -59,7 +59,7 @@ writeln("Checking ", csvfname)
   ! (Instance) 1: O9, 2: O15, 3: O21, 4: AC11, 5: AC17, 6: AC19, 7: AC21, 8: , 9:, 10: AC41, 11: AC51, 12: AC61, 13:AC121, 16: BE21, 19:CG41
 
   initializations from csvfname
-    Roster as "noindex;[B2:CG121]"
+    Roster as "noindex;[B2:NA151]"
   end-initializations
 
 
@@ -190,7 +190,7 @@ writeln("Checking ", csvfname)
         check_status := "All good :)"
       else
         check_status := "Not good :("
-        writeln("HC4:failed for Nurse ", i, ", ", sum(d in Days, t in ShiftID) ShiftLength(t)*ShiftAssigned(i,d,t))
+        writeln("HC4:failed for Nurse ", i, ", ", sum(d in Days, t in ShiftID) ShiftLength(t)*ShiftAssigned(i,d,t), ", Reqd: ", MinTotalMinutes(i))
         writeln
       end-if
       if sum(d in Days, t in ShiftID) ShiftLength(t)*ShiftAssigned(i,d,t) <= MaxTotalMinutes(i) then
@@ -213,7 +213,7 @@ writeln("Checking ", csvfname)
           check_status := "All good :)"
         else
           check_status := "Not good :("
-          writeln("HC5:failed for Nurse ", i, " on day ", d)
+          writeln("HC5(max):failed for Nurse ", i, " on day ", d)
           writeln
         end-if
       end-do
@@ -229,7 +229,7 @@ writeln("Checking ", csvfname)
             check_status := "All good :)"
           else
             check_status := "Not good :("
-            writeln("HC5:failed for Nurse ", i, " on day ", d)
+            writeln("HC5(min):failed for Nurse ", i, " on day ", d)
             writeln
           end-if
         end-do

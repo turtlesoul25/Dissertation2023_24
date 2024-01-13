@@ -36,8 +36,8 @@
                             "timestamp": 1700646192835
                         },
                         "filter": true,
-                        "title": "CheckingSolution.mos - Stopped",
-                        "tooltip": "CheckingSolution.mos - Stopped",
+                        "title": "CheckingSolution.mos - Running",
+                        "tooltip": "CheckingSolution.mos - Running",
                         "output": {
                             "id": "output27844135",
                             "width": 968,
@@ -48,6 +48,35 @@
                                 "debug": false,
                                 "toolbar": true,
                                 "name": ""
+                            },
+                            "running": {
+                                "pid": 78065,
+                                "name": "output27844135",
+                                "running": 2,
+                                "runner": [
+                                    {
+                                        "caption": "Mosel",
+                                        "cmd": [
+                                            "/Applications/FICO Xpress/Xpress Workbench.app/Contents/Resources/.c9/node/bin/node",
+                                            "/Applications/FICO Xpress/Xpress Workbench.app/Contents/Resources/.c9/node_modules/mosel-runner/bin/mosel-runner",
+                                            "run",
+                                            "${debug?--debug=6167}",
+                                            "--basedir",
+                                            "$project_path",
+                                            "$file",
+                                            "--stack-trace=20",
+                                            "$args"
+                                        ],
+                                        "cmdCleanup": [
+                                            "true"
+                                        ],
+                                        "debugger": "mosel",
+                                        "debugport": 6167,
+                                        "selector": "\\.mos$",
+                                        "$builtin": true
+                                    }
+                                ],
+                                "debug": false
                             }
                         }
                     },
@@ -124,7 +153,7 @@
             "@fullscreen": false,
             "@maximized": false,
             "@minimized": false,
-            "@position": "582:30",
+            "@position": "783:62",
             "@size": "1200:702"
         }
     },

@@ -36,7 +36,7 @@ model checking_solution
 
 
   ! Choose a dataset
-  dataset := 24
+  dataset := 22
 
   datafname := jointext(["Instance_dats/Instance", dataset, ".dat"], "")
   ! csvfname := jointext(["mmsheet.csv:RosterSolution_post_VNS/VNS_NurseRoster", dataset, ".csv"], "")
@@ -190,7 +190,7 @@ writeln("Checking ", csvfname)
         check_status := "All good :)"
       else
         check_status := "Not good :("
-        writeln("HC4:failed for Nurse ", i, ", ", sum(d in Days, t in ShiftID) ShiftLength(t)*ShiftAssigned(i,d,t), ", Reqd: ", MinTotalMinutes(i))
+        writeln("HC4:failed for Nurse ", i, ", ", "underminutes: ", MinTotalMinutes(i) - (sum(d in Days, t in ShiftID) ShiftLength(t)*ShiftAssigned(i,d,t)))
         writeln
       end-if
       if sum(d in Days, t in ShiftID) ShiftLength(t)*ShiftAssigned(i,d,t) <= MaxTotalMinutes(i) then

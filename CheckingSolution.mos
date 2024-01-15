@@ -29,14 +29,16 @@ model checking_solution
       NotAssignedPreferredShiftPenalty: array(NurseID, Days, ShiftID) of integer   ! Penalty if shift t is not assigned to nurse i on day d
       AssignedNotPreferredShiftPenalty: array(NurseID, Days, ShiftID) of integer   ! Penalty if shift t is assigned to nurse i
       ForbiddenSets:                    array(ShiftID) of set of string
-      NurseCoverage:                   array(Days, ShiftID) of integer
+      NurseCoverage:                    array(Days, ShiftID) of integer
       Roster:                           array(NurseID,Days) of string
+      UnderworkedPenalty:               array(NurseID) of integer
+      UnderMinutes:                     array(NurseID) of integer
   end-declarations
 
 
 
   ! Choose a dataset
-  dataset := 22
+  dataset := 24
 
   datafname := jointext(["Instance_dats/Instance", dataset, ".dat"], "")
   ! csvfname := jointext(["mmsheet.csv:RosterSolution_post_VNS/VNS_NurseRoster", dataset, ".csv"], "")
@@ -46,6 +48,7 @@ model checking_solution
 
 writeln
 writeln("Checking ", csvfname)
+writeln
 
 
   initializations from datafname
@@ -103,16 +106,23 @@ writeln("Checking ", csvfname)
     end-do
   end-do
 
-  ! forall (d in Days, t in ShiftID) do
-  !   writeln(d, ", ", t, ", ", NurseCoverage(d,t))
-  ! end-do
-
   ! Nurses Below and above Preferred Coverage
   forall(d in Days, t in ShiftID) do
     if NurseCoverage(d,t) < PreferredCoverage(d,t) then
       NursesBelowPreferredCoverage(d,t) := PreferredCoverage(d,t) - NurseCoverage(d,t)
     elif NurseCoverage(d,t) > PreferredCoverage(d,t) then
       NursesAbovePreferredCoverage(d,t) := NurseCoverage(d,t) - PreferredCoverage(d,t)
+    end-if
+  end-do
+
+
+  ! UnderworkedPenalty set to be 1 per minute for every nurse
+  forall(i in NurseID) UnderworkedPenalty(i) := 1
+  forall(i in NurseID) do
+    if MinTotalMinutes(i) <= sum(d in Days, t in ShiftID) ShiftLength(t)*ShiftAssigned(i,d,t) then
+      UnderMinutes(i) := 0
+    else
+      UnderMinutes(i) := MinTotalMinutes(i) - sum(d in Days, t in ShiftID) ShiftLength(t)*ShiftAssigned(i,d,t)
     end-if
   end-do
 
@@ -126,6 +136,7 @@ writeln("Checking ", csvfname)
   ShiftOffPenalty := sum(i in NurseID, d in Days, t in ShiftID) AssignedNotPreferredShiftPenalty(i,d,t)*ShiftAssigned(i,d,t)
   UndercoverPenalty := sum(d in Days, t in ShiftID) UnderstaffedPenalty(d,t)*NursesBelowPreferredCoverage(d,t)
   OvercoverPenalty  := sum(d in Days, t in ShiftID) OverstaffedPenalty(d,t)*NursesAbovePreferredCoverage(d,t)
+  MinMinutesPenalty := sum(i in NurseID) UnderworkedPenalty(i)*UnderMinutes(i)
 
   TotalPenalty := UndercoverPenalty + OvercoverPenalty  + ShiftOnPenalty + ShiftOffPenalty
 
@@ -134,13 +145,17 @@ writeln("Checking ", csvfname)
   ! Check the Constraints
 
 
+  writeln
+  writeln("Checking constraints")
+  writeln
 
   check_status := "All good :)"
+  dummy_var := 0
 
   ! HC1: An employee cannot be assigned more than one shift per day
   forall (i in NurseID, d in Days) do
     if sum(t in ShiftID) ShiftAssigned(i,d,t) <= 1 then
-      check_status := "All good :)"
+      dummy_var := dummy_var + 0
     else
       check_status := "Not good :("
       writeln("HC1: failed")
@@ -162,7 +177,7 @@ writeln("Checking ", csvfname)
 
   forall (d in 1..PlanningHorizon-1, i in NurseID, t in ShiftID) do
       if ShiftAssigned(i,d,t) + sum(u in ForbiddenSets(t)) ShiftAssigned(i, d+1, u) <= 1 then
-        check_status := "All good :)"
+        dummy_var := dummy_var + 0
       else
         check_status := "Not good :("
         writeln("HC2: failed for Nurse ",i, " around day ", d)
@@ -174,7 +189,7 @@ writeln("Checking ", csvfname)
   ! HC3: Maximum number of shifts of each type assigned to an employee
    forall (i in NurseID, t in ShiftID) do
       if sum(d in Days) ShiftAssigned(i,d,t) <= MaxShifts(i,t) then
-        check_status := "All good :)"
+        dummy_var := dummy_var + 0
       else
         check_status := "Not good :("
         writeln("HC3:failed")
@@ -187,14 +202,14 @@ writeln("Checking ", csvfname)
   ! HC4: Minimum and Maximum Work times
     forall (i in NurseID) do
       if sum(d in Days, t in ShiftID) ShiftLength(t)*ShiftAssigned(i,d,t) >= MinTotalMinutes(i) then
-        check_status := "All good :)"
+        dummy_var := dummy_var + 0
       else
-        check_status := "Not good :("
+        ! check_status := "Not good :("
         writeln("HC4:failed for Nurse ", i, ", ", "underminutes: ", MinTotalMinutes(i) - (sum(d in Days, t in ShiftID) ShiftLength(t)*ShiftAssigned(i,d,t)))
         writeln
       end-if
       if sum(d in Days, t in ShiftID) ShiftLength(t)*ShiftAssigned(i,d,t) <= MaxTotalMinutes(i) then
-        check_status := "All good :)"
+        dummy_var := dummy_var + 0
       else
         check_status := "Not good :("
         writeln("HC4:failed")
@@ -210,7 +225,7 @@ writeln("Checking ", csvfname)
       maxd := PlanningHorizon - cmax
       forall (d in 1..maxd) do
         if  sum(t in ShiftID, j in d..d+cmax) ShiftAssigned(i,j,t) <= cmax then
-          check_status := "All good :)"
+          dummy_var := dummy_var + 0
         else
           check_status := "Not good :("
           writeln("HC5(max):failed for Nurse ", i, " on day ", d)
@@ -226,7 +241,7 @@ writeln("Checking ", csvfname)
           if (sum(t in ShiftID) ShiftAssigned(i,d,t)) + s - 1 -
           (sum(j in d+1..d+s, t in ShiftID) ShiftAssigned(i,j,t)) +
           (sum(t in ShiftID) ShiftAssigned(i, d+s+1, t)) >= 0 then
-            check_status := "All good :)"
+            dummy_var := dummy_var + 0
           else
             check_status := "Not good :("
             writeln("HC5(min):failed for Nurse ", i, " on day ", d)
@@ -246,7 +261,7 @@ writeln("Checking ", csvfname)
           if (1 - sum(t in ShiftID) ShiftAssigned(i,d,t)) +
           (sum(j in d+1..d+s, t in ShiftID) ShiftAssigned(i,j,t)) +
           (1 - sum(t in ShiftID) ShiftAssigned(i, d+s+1, t)) >= 1 then
-            check_status := "All good :)"
+            dummy_var := dummy_var + 0
           else
             check_status := "Not good :("
             writeln("HC6:failed for Nurse ", i, " on day ", d)
@@ -260,7 +275,7 @@ writeln("Checking ", csvfname)
   ! HC7: Maximum number of Weekends worked by nurses
   forall (i in NurseID) do
     if sum(w in Weekends) WeekendShiftAssigned(i,w) <= MaxWeekends(i) then
-      check_status := "All good :)"
+      dummy_var := dummy_var + 0
     else
       check_status := "Not good :("
       writeln("HC7:failed")
@@ -268,14 +283,14 @@ writeln("Checking ", csvfname)
     end-if
     forall (w in Weekends) do
       if sum(t in ShiftID) (ShiftAssigned(i, 7*w - 1, t) + ShiftAssigned(i, 7*w, t)) >= WeekendShiftAssigned(i,w) then
-        check_status := "All good :)"
+        dummy_var := dummy_var + 0
       else
         check_status := "Not good :("
         writeln("HC7:failed")
         writeln
       end-if
       if sum(t in ShiftID) (ShiftAssigned(i, 7*w - 1, t) + ShiftAssigned(i, 7*w, t)) <= 2*WeekendShiftAssigned(i,w) then
-        check_status := "All good :)"
+        dummy_var := dummy_var + 0
       else
         check_status := "Not good :("
         writeln("HC7:failed")
@@ -289,7 +304,7 @@ writeln("Checking ", csvfname)
   forall (i in NurseID, t in ShiftID) do
     forall (d in DaysOff(i)) do
       if ShiftAssigned(i, d, t) = 0 then
-        check_status := "All good :)"
+        dummy_var := dummy_var + 0
       else
         check_status := "Not good :("
         writeln("HC8:failed")
@@ -302,7 +317,7 @@ writeln("Checking ", csvfname)
   ! HC9: Coverage requirements
   forall (d in Days, t in ShiftID) do
     if (sum(i in NurseID) ShiftAssigned(i,d,t)) - NursesAbovePreferredCoverage(d,t) + NursesBelowPreferredCoverage(d,t) = PreferredCoverage(d,t) then
-      check_status := "All good :)"
+      dummy_var := dummy_var + 0
     else
       check_status := "Not good :("
       writeln("HC9:failed")
@@ -311,13 +326,19 @@ writeln("Checking ", csvfname)
   end-do
 
 writeln
-write("Verifying Instance ", dataset, ": ")
+writeln("Verifying Instance ", dataset, ": ")
 
 if check_status = "All good :)" then
   write("All constraints satisfied!")
   writeln
 end-if
 
-writeln("The given solution has Penalty: ", TotalPenalty)
+! ----------------------    Objective results     --------------------------------
+writeln
+writeln("______________________________")
+writeln("Results of objective function")
+writeln("The given solution has base Penalty: ", TotalPenalty)
+writeln("The total underworking penalty is: ", MinMinutesPenalty)
+writeln("The total penalty is: ",  TotalPenalty+MinMinutesPenalty)
 
 end-model

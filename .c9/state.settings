@@ -10,6 +10,46 @@
             "@wraparound": "true"
         }
     },
+    "breakpoints": {
+        "json()": [
+            {
+                "path": "/CheckingSolution.mos",
+                "line": 33,
+                "column": 6,
+                "text": "CheckingSolution.mos",
+                "content": "      UnderworkedPenalty:               array(NurseID) of integer",
+                "time": 1705178775101,
+                "enabled": true
+            },
+            {
+                "path": "/CheckingSolution.mos",
+                "line": 118,
+                "column": 2,
+                "text": "CheckingSolution.mos",
+                "content": "  UnderworkedPenalty := 1..getsize()",
+                "time": 1705178768163,
+                "enabled": true
+            },
+            {
+                "path": "/CheckingSolution.mos",
+                "line": 138,
+                "column": 2,
+                "text": "CheckingSolution.mos",
+                "content": "  MinMinutesPenalty := sum(i in NurseID) UnderworkedPenalty(i)*UnderMinutes(i)",
+                "time": 1705180828693,
+                "enabled": true
+            },
+            {
+                "path": "/CheckingSolution.mos",
+                "line": 34,
+                "column": 6,
+                "text": "CheckingSolution.mos",
+                "content": "      UnderMinutes:                     array(NurseID) of integer",
+                "time": 1705181718587,
+                "enabled": true
+            }
+        ]
+    },
     "console": {
         "@expanded": true,
         "@height": 331,
@@ -17,72 +57,12 @@
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab7",
+                    "tab3",
                     "tab8"
                 ]
             },
             "name": "pane1",
             "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab7",
-                    "path": "",
-                    "className": [
-                        "tab7"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1700646192835
-                        },
-                        "filter": true,
-                        "title": "CheckingSolution.mos - Running",
-                        "tooltip": "CheckingSolution.mos - Running",
-                        "output": {
-                            "id": "output27844135",
-                            "width": 968,
-                            "height": 299,
-                            "config": {
-                                "runner": "Mosel",
-                                "command": "CheckingSolution.mos",
-                                "debug": false,
-                                "toolbar": true,
-                                "name": ""
-                            },
-                            "running": {
-                                "pid": 78065,
-                                "name": "output27844135",
-                                "running": 2,
-                                "runner": [
-                                    {
-                                        "caption": "Mosel",
-                                        "cmd": [
-                                            "/Applications/FICO Xpress/Xpress Workbench.app/Contents/Resources/.c9/node/bin/node",
-                                            "/Applications/FICO Xpress/Xpress Workbench.app/Contents/Resources/.c9/node_modules/mosel-runner/bin/mosel-runner",
-                                            "run",
-                                            "${debug?--debug=6167}",
-                                            "--basedir",
-                                            "$project_path",
-                                            "$file",
-                                            "--stack-trace=20",
-                                            "$args"
-                                        ],
-                                        "cmdCleanup": [
-                                            "true"
-                                        ],
-                                        "debugger": "mosel",
-                                        "debugport": 6167,
-                                        "selector": "\\.mos$",
-                                        "$builtin": true
-                                    }
-                                ],
-                                "debug": false
-                            }
-                        }
-                    },
-                    "editorType": "output",
-                    "active": true
-                },
                 {
                     "type": "tab",
                     "name": "tab8",
@@ -113,6 +93,36 @@
                     },
                     "editorType": "output",
                     "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab3",
+                    "path": "",
+                    "className": [
+                        "tab3"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1705179835326
+                        },
+                        "filter": true,
+                        "title": "CheckingSolution.mos - Stopped",
+                        "tooltip": "CheckingSolution.mos - Stopped",
+                        "output": {
+                            "id": "output98012104",
+                            "width": 968,
+                            "height": 299,
+                            "config": {
+                                "runner": "Mosel",
+                                "command": "CheckingSolution.mos",
+                                "debug": false,
+                                "toolbar": true
+                            }
+                        }
+                    },
+                    "editorType": "output",
+                    "active": true
                 }
             ],
             "skin": "editor_tab",
@@ -126,7 +136,7 @@
             "@acestatus": 1,
             "@base-step-wizard": 2,
             "@divider": 4,
-            "@document": 4,
+            "@document": 7,
             "@editorswitch": 1,
             "@fico.mosel.debugger.array.model": 2,
             "@fico.vdl.attributes-panel": 1,
@@ -135,9 +145,9 @@
             "@menu": 3,
             "@menuitem": 8,
             "@pane": 3,
-            "@session": 4,
-            "@tab": 3,
-            "@undoManager": 4,
+            "@session": 7,
+            "@tab": 4,
+            "@undoManager": 7,
             "@welcome": 1
         }
     },
@@ -152,8 +162,8 @@
         "window": {
             "@fullscreen": false,
             "@maximized": false,
-            "@minimized": false,
-            "@position": "783:62",
+            "@minimized": true,
+            "@position": "89:41",
             "@size": "1200:702"
         }
     },
@@ -168,8 +178,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab3",
-            "tab7"
+            "tab0",
+            "tab3"
         ]
     },
     "panels": {
@@ -218,7 +228,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": -10,
+        "@scrollpos": 1306,
         "expanded": {
             "json()": [
                 "/",
@@ -234,6 +244,7 @@
     "search-history": {
         "replace": {
             "json()": [
+                "dummy_var := dummy_var + 0",
                 "check_status := \"All good :)\"",
                 "check_status := \"All good\"",
                 "writeln",
@@ -242,6 +253,11 @@
         },
         "search": {
             "json()": [
+                "max",
+                "ShiftAssigned",
+                "length",
+                "size",
+                "ForbiddenSets",
                 "writeln\n      writeln(\"HC",
                 "write(\" \")",
                 "size",
@@ -255,33 +271,12 @@
             "focus": "/CheckingSolution.mos",
             "meta": {
                 "accessList": [
-                    "tab3",
+                    "tab0",
                     "tab1"
                 ]
             },
             "name": "pane0",
             "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab3",
-                    "path": "/CheckingSolution.mos",
-                    "className": [
-                        "tab3",
-                        "focus"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1704484778006
-                        },
-                        "filter": true,
-                        "title": "CheckingSolution.mos",
-                        "tooltip": "/CheckingSolution.mos",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": true
-                },
                 {
                     "type": "tab",
                     "name": "tab1",
@@ -302,6 +297,27 @@
                     },
                     "editorType": "ace",
                     "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab0",
+                    "path": "/CheckingSolution.mos",
+                    "className": [
+                        "tab0",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1705179829075
+                        },
+                        "filter": true,
+                        "title": "CheckingSolution.mos",
+                        "tooltip": "/CheckingSolution.mos",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
                 }
             ],
             "skin": "editor_tab",
@@ -311,7 +327,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/Instance_txts/Instance15.txt"
+            "/CheckingSolution.mos"
         ]
     },
     "welcome": {

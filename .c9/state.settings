@@ -52,13 +52,13 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 331,
+        "@height": 254,
         "@maximized": "false",
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab3",
-                    "tab8"
+                    "tab8",
+                    "tab3"
                 ]
             },
             "name": "pane1",
@@ -76,16 +76,16 @@
                             "timestamp": 1700739721877
                         },
                         "filter": true,
-                        "title": "NRP.mos - Idle",
-                        "tooltip": "NRP.mos - Idle",
+                        "title": "NRP.mos - Stopped",
+                        "tooltip": "NRP.mos - Stopped",
                         "output": {
                             "id": "output63209139",
                             "width": 968,
-                            "height": 299,
+                            "height": 222,
                             "config": {
                                 "runner": "Mosel",
                                 "command": "NRP.mos",
-                                "debug": true,
+                                "debug": false,
                                 "toolbar": true,
                                 "name": ""
                             }
@@ -99,7 +99,8 @@
                     "name": "tab3",
                     "path": "",
                     "className": [
-                        "tab3"
+                        "tab3",
+                        "running"
                     ],
                     "document": {
                         "changed": false,
@@ -107,17 +108,47 @@
                             "timestamp": 1705179835326
                         },
                         "filter": true,
-                        "title": "CheckingSolution.mos - Stopped",
-                        "tooltip": "CheckingSolution.mos - Stopped",
+                        "title": "CheckingSolution.mos - Running",
+                        "tooltip": "CheckingSolution.mos - Running",
                         "output": {
                             "id": "output98012104",
                             "width": 968,
-                            "height": 299,
+                            "height": 222,
                             "config": {
                                 "runner": "Mosel",
                                 "command": "CheckingSolution.mos",
                                 "debug": false,
-                                "toolbar": true
+                                "toolbar": true,
+                                "name": ""
+                            },
+                            "running": {
+                                "pid": 69457,
+                                "name": "output98012104",
+                                "running": 2,
+                                "runner": [
+                                    {
+                                        "caption": "Mosel",
+                                        "cmd": [
+                                            "/Applications/FICO Xpress/Xpress Workbench.app/Contents/Resources/.c9/node/bin/node",
+                                            "/Applications/FICO Xpress/Xpress Workbench.app/Contents/Resources/.c9/node_modules/mosel-runner/bin/mosel-runner",
+                                            "run",
+                                            "${debug?--debug=6167}",
+                                            "--basedir",
+                                            "$project_path",
+                                            "$file",
+                                            "--stack-trace=20",
+                                            "$args"
+                                        ],
+                                        "cmdCleanup": [
+                                            "true"
+                                        ],
+                                        "debugger": "mosel",
+                                        "debugport": 6167,
+                                        "selector": "\\.mos$",
+                                        "$builtin": true
+                                    }
+                                ],
+                                "debug": false
                             }
                         }
                     },
@@ -162,8 +193,8 @@
         "window": {
             "@fullscreen": false,
             "@maximized": false,
-            "@minimized": true,
-            "@position": "89:41",
+            "@minimized": false,
+            "@position": "-84:44",
             "@size": "1200:702"
         }
     },
@@ -228,7 +259,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 1306,
+        "@scrollpos": 1152,
         "expanded": {
             "json()": [
                 "/",
@@ -253,6 +284,7 @@
         },
         "search": {
             "json()": [
+                "csvfname",
                 "max",
                 "ShiftAssigned",
                 "length",
@@ -288,7 +320,7 @@
                         "changed": false,
                         "meta": {
                             "ignoreState": 0,
-                            "timestamp": 1702209977559
+                            "timestamp": 1705499281211
                         },
                         "filter": true,
                         "title": "NRP.mos",
@@ -309,7 +341,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1705179829075
+                            "timestamp": 1705588071085
                         },
                         "filter": true,
                         "title": "CheckingSolution.mos",

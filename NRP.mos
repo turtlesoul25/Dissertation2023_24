@@ -1,6 +1,7 @@
 model nurse_rostering
   uses "mmxprs", "mmsystem", "kalis"
-  setparam("XPRS_MAXTIME", 27200)
+  setparam("XPRS_MAXTIME", 3600)
+  ! setparam("XPRS_VERBOSE",true)
   ! setparam("XPRS_enummaxsol", 1)
   ! stopoptimise(XPRS_STOP_SOLLIMIT)
   starttime:= gettime
@@ -36,13 +37,13 @@ model nurse_rostering
   end-declarations
 
   ! Choose a dataset
-  dataset := 2
+  dataset := 5
 
   datafname := jointext(["Instance_dats/Instance", dataset, ".dat"], "")
   ! csvfname := jointext(["RosterSolutions/NurseRoster", dataset, ".csv"], "")
   csvfname := jointext(["NurseRoster", dataset, ".csv"], "")
 
-  initializations from datafname
+  initializations from  "model.dat" ! datafname
     NurseID Days Weekends PlanningHorizon NumWeekends ShiftID  DaysOff ShiftLength MaxShifts
     MaxTotalMinutes MinTotalMinutes MaxConsecutiveShifts MinConsecutiveShifts MinConsecutiveDaysOff
     MaxWeekends PreferredCoverage UnderstaffedPenalty OverstaffedPenalty ForbiddenShifts
@@ -166,10 +167,11 @@ model nurse_rostering
 
 ! Solution printing
  procedure printsol
-  if gettime - starttime > 0 then
-    writeln("Solution ", getparam("XPRS_MIPSOLS"))
-    writeln("Total penalty: ", getsol(TotalPenalty))
-    ! writeln("Lower bound: ", getlb(TotalPenalty))
+  if 600 <= gettime - starttime  then
+    if gettime - starttime <= 700 then
+      writeln("Solution ", getparam("XPRS_MIPSOLS"), " at time ", gettime - starttime, " seconds." )
+      writeln("Total penalty: ", getsol(TotalPenalty))
+    end-if
   end-if
  end-procedure
 
@@ -228,7 +230,7 @@ writeln
 
 
 
-writeln("Checking that nurses are not assigned more than one shift per day")
+! writeln("Checking that nurses are not assigned more than one shift per day")
 forall (i in NurseID, d in Days) do
   if (sum(t in ShiftID) getsol(ShiftAssigned(i,d,t)) >= 2) then
     writeln("Nurse ", i, " has more than one shift assigned on day ", d)
@@ -237,7 +239,7 @@ end-do
 
 writeln
 
-writeln("Checking Forbidden Shift constraint")
+! writeln("Checking Forbidden Shift constraint")
 forall (d in 1..PlanningHorizon-1) do
     forall(i in NurseID, t in ShiftID) do
       if getsol(ShiftAssigned(i,d,t)) + sum(u in ForbiddenSets(t)) getsol(ShiftAssigned(i, d+1, u)) >= 2 then
@@ -248,7 +250,7 @@ end-do
 
 writeln
 
-writeln("Checking Max shifts constraint")
+! writeln("Checking Max shifts constraint")
 forall (i in NurseID, t in ShiftID) do
   if sum(d in Days) getsol(ShiftAssigned(i,d,t)) >= MaxShifts(i,t) + 1 then
     writeln("Nurse ", i)
@@ -257,7 +259,7 @@ end-do
 
 writeln
 
-writeln("Checking Min and Max work times constraint")
+! writeln("Checking Min and Max work times constraint")
 forall (i in NurseID) do
     if sum(d in Days, t in ShiftID) ShiftLength(t)*getsol(ShiftAssigned(i,d,t)) <= MinTotalMinutes(i) - 1 then
       write("Nurse ", i)
@@ -268,7 +270,7 @@ end-do
 
 writeln
 
-writeln("Checking Min and max consecutive shifts")
+! writeln("Checking Min and max consecutive shifts")
 forall (i in NurseID) do
       ! Maximum consecutive shifts
       cmax := MaxConsecutiveShifts(i)
@@ -295,7 +297,7 @@ forall (i in NurseID) do
 
 writeln
 
-writeln("Checking Minimum Consecutive Days off constraint")
+! writeln("Checking Minimum Consecutive Days off constraint")
 forall(i in NurseID, s in 1..(MinConsecutiveDaysOff(i) - 1)) do
   forall (d in 1..(PlanningHorizon - (s+1))) do
       if 1 - (sum(t in ShiftID) getsol(ShiftAssigned(i,d,t))) +
@@ -308,7 +310,7 @@ end-do
 
 writeln
 
-writeln("Checking weekend constraints")
+! writeln("Checking weekend constraints")
 forall (i in NurseID) do
     if sum(w in Weekends) getsol(WeekendShiftAssigned(i,w)) >= MaxWeekends(i) + 1 then
       writeln("Nurse ", i)
@@ -327,7 +329,7 @@ end-do
 writeln
 
 
-writeln("Checking Days Off constraint")
+! writeln("Checking Days Off constraint")
 forall (i in NurseID) do
       forall (t in ShiftID, u in DaysOff(i)) do
         if getsol(ShiftAssigned(i,u,t)) > 0 then
@@ -340,7 +342,7 @@ end-do
 
 writeln
 
-writeln("Checking Coverage requirements")
+! writeln("Checking Coverage requirements")
 forall (d in Days, t in ShiftID) do
 
     if sum(i in NurseID) getsol(ShiftAssigned(i,d,t)) <> getsol(NursesAbovePreferredCoverage(d,t)) - getsol(NursesBelowPreferredCoverage(d,t)) + PreferredCoverage(d,t) then
@@ -365,34 +367,34 @@ writeln("The minimised penalty = ", getobjval)
 writeln("Time elapsed: ", strfmt(endtime - starttime, 2), "s.")
 
 
-fopen(csvfname, F_OUTPUT)
+! fopen(csvfname, F_OUTPUT)
 
-write("NurseID")
-forall(d in Days) write(",", d)
-writeln
+! write("NurseID")
+! forall(d in Days) write(",", d)
+! writeln
 
-forall (i in NurseID) do
-    write(i)
-    forall (d in Days) do
-      if sum(t in ShiftID) getsol(ShiftAssigned(i,d,t)) > 0 then
-        forall (t in ShiftID) do
-          if getsol(ShiftAssigned(i,d,t)) > 0 then
-            write(",", t)
-          end-if
-        end-do
-      else
-        write(",", " ")
-      end-if
-    end-do
-  writeln
-end-do
+! forall (i in NurseID) do
+!     write(i)
+!     forall (d in Days) do
+!       if sum(t in ShiftID) getsol(ShiftAssigned(i,d,t)) > 0 then
+!         forall (t in ShiftID) do
+!           if getsol(ShiftAssigned(i,d,t)) > 0 then
+!             write(",", t)
+!           end-if
+!         end-do
+!       else
+!         write(",", " ")
+!       end-if
+!     end-do
+!   writeln
+! end-do
 
-print_status
-writeln
-writeln("The minimised penalty = ", getobjval)
-writeln("Time elapsed: ", strfmt(endtime - starttime, 2), "s.")
+! print_status
+! writeln
+! writeln("The minimised penalty = ", getobjval)
+! writeln("Time elapsed: ", strfmt(endtime - starttime, 2), "s.")
 
-fclose(F_OUTPUT)
+! fclose(F_OUTPUT)
 
 
 

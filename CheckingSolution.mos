@@ -38,13 +38,13 @@ model checking_solution
 
 
   ! Choose a dataset
-  dataset := 24
+  dataset := 5
 
   datafname := jointext(["Instance_dats/Instance", dataset, ".dat"], "")
   ! csvfname := jointext(["mmsheet.csv:RosterSolution_post_VNS/VNS_NurseRoster", dataset, ".csv"], "")
-  ! csvfname := jointext(["mmsheet.csv:RosterSolutions/NurseRoster", dataset, ".csv"], "")
+  csvfname := jointext(["mmsheet.csv:RosterSolutions/NurseRoster", dataset, ".csv"], "")
   ! csvfname := jointext(["mmsheet.csv:Heuristic_initial_solution/NurseRoster", dataset, ".csv"], "")
-  csvfname := jointext(["mmsheet.csv:Heuristic_initial_sols/NurseRoster", dataset, ".csv"], "")
+  ! csvfname := jointext(["mmsheet.csv:Heuristic_initial_sols/NurseRoster", dataset, ".csv"], "")
 
 writeln
 writeln("Checking ", csvfname)

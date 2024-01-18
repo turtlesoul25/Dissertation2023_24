@@ -23,7 +23,16 @@
             },
             {
                 "path": "/CheckingSolution.mos",
-                "line": 118,
+                "line": 34,
+                "column": 6,
+                "text": "CheckingSolution.mos",
+                "content": "      UnderMinutes:                     array(NurseID) of integer",
+                "time": 1705181718587,
+                "enabled": true
+            },
+            {
+                "path": "/CheckingSolution.mos",
+                "line": 119,
                 "column": 2,
                 "text": "CheckingSolution.mos",
                 "content": "  UnderworkedPenalty := 1..getsize()",
@@ -32,20 +41,11 @@
             },
             {
                 "path": "/CheckingSolution.mos",
-                "line": 138,
+                "line": 139,
                 "column": 2,
                 "text": "CheckingSolution.mos",
                 "content": "  MinMinutesPenalty := sum(i in NurseID) UnderworkedPenalty(i)*UnderMinutes(i)",
                 "time": 1705180828693,
-                "enabled": true
-            },
-            {
-                "path": "/CheckingSolution.mos",
-                "line": 34,
-                "column": 6,
-                "text": "CheckingSolution.mos",
-                "content": "      UnderMinutes:                     array(NurseID) of integer",
-                "time": 1705181718587,
                 "enabled": true
             }
         ]
@@ -122,7 +122,7 @@
                                 "name": ""
                             },
                             "running": {
-                                "pid": 69457,
+                                "pid": 70107,
                                 "name": "output98012104",
                                 "running": 2,
                                 "runner": [
@@ -194,7 +194,7 @@
             "@fullscreen": false,
             "@maximized": false,
             "@minimized": false,
-            "@position": "-84:44",
+            "@position": "489:44",
             "@size": "1200:702"
         }
     },

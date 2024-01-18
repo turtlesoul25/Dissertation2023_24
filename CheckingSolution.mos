@@ -38,12 +38,12 @@ model checking_solution
 
 
   ! Choose a dataset
-  dataset := 5
+  dataset := 2
 
   datafname := jointext(["Instance_dats/Instance", dataset, ".dat"], "")
   ! csvfname := jointext(["mmsheet.csv:RosterSolution_post_VNS/VNS_NurseRoster", dataset, ".csv"], "")
-  csvfname := jointext(["mmsheet.csv:RosterSolutions/NurseRoster", dataset, ".csv"], "")
-  ! csvfname := jointext(["mmsheet.csv:Heuristic_soln_post_VNS/VNS_NurseRoster", dataset, ".csv"], "")
+  ! csvfname := jointext(["mmsheet.csv:RosterSolutions/NurseRoster", dataset, ".csv"], "")
+  csvfname := jointext(["mmsheet.csv:Heuristic_soln_post_VNS/VNS_NurseRoster", dataset, ".csv"], "")
   ! csvfname := jointext(["mmsheet.csv:Heuristic_initial_solution/NurseRoster", dataset, ".csv"], "")
   ! csvfname := jointext(["mmsheet.csv:Heuristic_initial_sols/NurseRoster", dataset, ".csv"], "")
 

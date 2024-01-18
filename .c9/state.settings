@@ -57,8 +57,8 @@
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab8",
-                    "tab3"
+                    "tab3",
+                    "tab8"
                 ]
             },
             "name": "pane1",
@@ -99,8 +99,7 @@
                     "name": "tab3",
                     "path": "",
                     "className": [
-                        "tab3",
-                        "running"
+                        "tab3"
                     ],
                     "document": {
                         "changed": false,
@@ -108,8 +107,8 @@
                             "timestamp": 1705179835326
                         },
                         "filter": true,
-                        "title": "CheckingSolution.mos - Running",
-                        "tooltip": "CheckingSolution.mos - Running",
+                        "title": "CheckingSolution.mos - Stopped",
+                        "tooltip": "CheckingSolution.mos - Stopped",
                         "output": {
                             "id": "output98012104",
                             "width": 968,
@@ -120,35 +119,6 @@
                                 "debug": false,
                                 "toolbar": true,
                                 "name": ""
-                            },
-                            "running": {
-                                "pid": 70107,
-                                "name": "output98012104",
-                                "running": 2,
-                                "runner": [
-                                    {
-                                        "caption": "Mosel",
-                                        "cmd": [
-                                            "/Applications/FICO Xpress/Xpress Workbench.app/Contents/Resources/.c9/node/bin/node",
-                                            "/Applications/FICO Xpress/Xpress Workbench.app/Contents/Resources/.c9/node_modules/mosel-runner/bin/mosel-runner",
-                                            "run",
-                                            "${debug?--debug=6167}",
-                                            "--basedir",
-                                            "$project_path",
-                                            "$file",
-                                            "--stack-trace=20",
-                                            "$args"
-                                        ],
-                                        "cmdCleanup": [
-                                            "true"
-                                        ],
-                                        "debugger": "mosel",
-                                        "debugport": 6167,
-                                        "selector": "\\.mos$",
-                                        "$builtin": true
-                                    }
-                                ],
-                                "debug": false
                             }
                         }
                     },
@@ -193,7 +163,7 @@
         "window": {
             "@fullscreen": false,
             "@maximized": false,
-            "@minimized": false,
+            "@minimized": true,
             "@position": "489:44",
             "@size": "1200:702"
         }

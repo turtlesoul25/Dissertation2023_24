@@ -52,7 +52,7 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 254,
+        "@height": 348,
         "@maximized": "false",
         "json()": {
             "meta": {
@@ -81,7 +81,7 @@
                         "output": {
                             "id": "output63209139",
                             "width": 968,
-                            "height": 222,
+                            "height": 316,
                             "config": {
                                 "runner": "Mosel",
                                 "command": "NRP.mos",
@@ -112,7 +112,7 @@
                         "output": {
                             "id": "output98012104",
                             "width": 968,
-                            "height": 222,
+                            "height": 316,
                             "config": {
                                 "runner": "Mosel",
                                 "command": "CheckingSolution.mos",
@@ -163,8 +163,8 @@
         "window": {
             "@fullscreen": false,
             "@maximized": false,
-            "@minimized": true,
-            "@position": "489:44",
+            "@minimized": false,
+            "@position": "-199:27",
             "@size": "1200:702"
         }
     },

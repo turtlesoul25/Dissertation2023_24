@@ -38,14 +38,14 @@ model checking_solution
 
 
   ! Choose a dataset
-  dataset := 2
+  dataset := 22
 
   datafname := jointext(["Instance_dats/Instance", dataset, ".dat"], "")
   ! csvfname := jointext(["mmsheet.csv:RosterSolution_post_VNS/VNS_NurseRoster", dataset, ".csv"], "")
   ! csvfname := jointext(["mmsheet.csv:RosterSolutions/NurseRoster", dataset, ".csv"], "")
   csvfname := jointext(["mmsheet.csv:Heuristic_soln_post_VNS/VNS_NurseRoster", dataset, ".csv"], "")
   ! csvfname := jointext(["mmsheet.csv:Heuristic_initial_solution/NurseRoster", dataset, ".csv"], "")
-  ! csvfname := jointext(["mmsheet.csv:Heuristic_initial_sols/NurseRoster", dataset, ".csv"], "")
+  csvfname := jointext(["mmsheet.csv:Heuristic_initial_sols/NurseRoster", dataset, ".csv"], "")
 
 writeln
 writeln("Checking ", csvfname)
@@ -205,7 +205,7 @@ writeln
       if sum(d in Days, t in ShiftID) ShiftLength(t)*ShiftAssigned(i,d,t) >= MinTotalMinutes(i) then
         dummy_var := dummy_var + 0
       else
-        ! check_status := "Not good :("
+        check_status := "Not good :("
         writeln("HC4:failed for Nurse ", i, ", ", "underminutes: ", MinTotalMinutes(i) - (sum(d in Days, t in ShiftID) ShiftLength(t)*ShiftAssigned(i,d,t)))
         writeln
       end-if

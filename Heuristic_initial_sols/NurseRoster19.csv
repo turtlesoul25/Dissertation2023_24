@@ -31,8 +31,8 @@ AC,L,L,L,L,L, , ,L,L,L,L,L, , ,L,L,L,L,L, , , , ,E,L,L,L,L, , ,E,L,L,L,L, , ,E,E
 AD,E,E,E,d2,d2, , ,E,E,d2,d2,d2, , ,E,E,E,E,E, , ,E,E,d2,d2,d2, , ,E,E,E,d2,d2, , ,E,E,E,E, , , , , , , , ,d2,d2,d2,d2,d2, , , , ,E,E,E,E,E, , ,E,E,E,E,E, , ,E,E,E,E,E, , ,E,E,E,E,E, , 
 AE,E,L,L,L, , ,L,L,L,L, , , , ,d1,d1,d1,d2, , , ,d2,d1,L,L, , , ,E,d1,d1,L, , ,d1,L,L,L, , ,L,L,N,N, , , , , , , , ,E,E,d1,d2, , ,L,L,L,L, , ,E,E,L,L, , ,d1,L,N,N, , , ,E,E,d1,d1, , , 
 AF,E,E,E, , , , , ,E,E,E,E, , ,E,E,E,E, , ,E,E,E,E, , ,E,E,E,E, , ,E,E,E,E, , ,E,E,E,E, , ,E,E,E, , ,E,E,E, , , ,E,E,E,E, , , , ,E,E,E,E, , , ,E,E,E,E, , , ,E,E,E,E, , , 
-AG,E,L,L,L, , , ,E,d2,N,N, , ,N,N,N,N, , , , , , , , , , , ,L,L,L,L, , , ,E,E,E,E, , ,L,L,L,L, , , , ,L,L,L,L, , , ,E,L,L,L, , ,L,L,L,L, , ,E,E,L,L, , ,E,L,L,L, , , , , , 
-AH,E,E,d2,d1, , , , , , , ,E,E,d2,d1, , , , , , ,d1,d1,d2,d2, , , , ,N,N,N,N, , ,d1,d1,d2,d1, , , ,E,d1,d1,N, , , ,E,E,E,d1, , , , , ,d1,d1,d2,d1, , ,N,N,N,N, , ,E,E,E,d2, , , ,E,E,E,d1, , , 
+AG,E,E,E,L, , ,L,L,L,L, , , , ,E,d2,L,L, , , , , , , , , , ,N,N,N,N, , , ,E,E,E,E, , , ,d2,L,L,L, , , ,E,L,L,L, , ,L,L,L,L, , ,E,E,E,d2, , ,E,E,E,d2, , ,L,L,L,N, , , ,d2,L,L,L
+AH,d1,d1,d1,N, , , , , , , ,E,E,d1,d2, , ,E,d1,d2, , ,d1,d2,d2,d1, , , ,E,d1,d1,d1, , ,d1,d1,d1,d1, , ,d1,d1,d1,d1, , ,d1,d1,d1,d1, , ,d1,d1,d1, , ,E,d1,d1, , ,E,E,E,E, , , ,E,d1,d1,d2, , , ,E,E,E,d1, , , 
 AI,d1,d1, , , , , ,d1,d1, , , , , ,d1,d1, , , , , ,E,d1, , , , , ,E,d1, , , , , , , ,E,d1, , , ,E,d1, , , , , ,d1,d2, , , , , ,d1,d1, , , , , ,E,E,E,d1, , , ,E,d1,d1,d2,d2, , , , , ,d1,d2, , 
 AJ, , , , , ,E,L, , , , , , , ,L,L, , , , , ,E,d1, , , , , ,E,L, , , , , ,L,L, , , , , ,L,L, , , , , ,L,L, , , , ,L,L, , ,d1,d1,d1, , , , , , , , ,E,L,L,L,L, , ,L,L,L,L,L, , 
 AK,d1,d1, , , , , ,d1,d1, , , , , ,d1,d1, , , , , ,d1,d1, , , , , ,N,N, , , , , ,E,E, , , , , ,E,E, , , , , ,E,d1, , , , , , , , , , ,E,E,E, , , , ,d1,d1,d1,d1,d1, , , , ,E,d1,d1,d1,d1, , 

@@ -164,7 +164,7 @@
             "@fullscreen": false,
             "@maximized": false,
             "@minimized": false,
-            "@position": "-199:27",
+            "@position": "0:26",
             "@size": "1200:702"
         }
     },
@@ -245,6 +245,9 @@
     "search-history": {
         "replace": {
             "json()": [
+                "ShiftOnPenalty",
+                "ShiftOffPenalty",
+                "ShiftOnPenalty",
                 "dummy_var := dummy_var + 0",
                 "check_status := \"All good :)\"",
                 "check_status := \"All good\"",
@@ -254,6 +257,7 @@
         },
         "search": {
             "json()": [
+                "AssignedNotPreferredShiftPenalty",
                 "csvfname",
                 "max",
                 "ShiftAssigned",
@@ -290,7 +294,7 @@
                         "changed": false,
                         "meta": {
                             "ignoreState": 0,
-                            "timestamp": 1705499281211
+                            "timestamp": 1705684096491
                         },
                         "filter": true,
                         "title": "NRP.mos",
@@ -311,7 +315,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1705588071085
+                            "timestamp": 1705684027468
                         },
                         "filter": true,
                         "title": "CheckingSolution.mos",

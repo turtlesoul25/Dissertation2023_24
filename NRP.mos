@@ -31,8 +31,8 @@ model nurse_rostering
       WeekendShiftAssigned:             array(NurseID, Weekends) of mpvar          ! Binary variable for whether nurse i works on weekend w or not
       NursesBelowPreferredCoverage:     array(Days, ShiftID) of mpvar              ! Total nurses below preferred coverage for shift t on day d
       NursesAbovePreferredCoverage:     array(Days, ShiftID) of mpvar              ! Total nurses above preferred coverage for shift
-      NotAssignedPreferredShiftPenalty: array(NurseID, Days, ShiftID) of integer   ! Penalty if shift t is not assigned to nurse i on day d
-      AssignedNotPreferredShiftPenalty: array(NurseID, Days, ShiftID) of integer   ! Penalty if shift t is assigned to nurse i
+      ShiftOnPenalty:                   array(NurseID, Days, ShiftID) of integer   ! Penalty if shift t is not assigned to nurse i on day d (shift on request is not granted)
+      ShiftOffPenalty:                  array(NurseID, Days, ShiftID) of integer   ! Penalty if shift t is assigned to nurse i (shift off request is not granted)
       ForbiddenSets:                    array(ShiftID) of set of string
   end-declarations
 
@@ -47,15 +47,15 @@ model nurse_rostering
     NurseID Days Weekends PlanningHorizon NumWeekends ShiftID  DaysOff ShiftLength MaxShifts
     MaxTotalMinutes MinTotalMinutes MaxConsecutiveShifts MinConsecutiveShifts MinConsecutiveDaysOff
     MaxWeekends PreferredCoverage UnderstaffedPenalty OverstaffedPenalty ForbiddenShifts
-    AssignedNotPreferredShiftPenalty NotAssignedPreferredShiftPenalty
+    ShiftOffPenalty ShiftOnPenalty
   end-initializations
 
 
   ! ----------------------    Objective Function    ---------------------------
   ! Define Objective: to minimize penalties
 
-  ShiftOnPenalty := sum(i in NurseID, d in Days, t in ShiftID) NotAssignedPreferredShiftPenalty(i,d,t)*(1 - ShiftAssigned(i,d,t))
-  ShiftOffPenalty := sum(i in NurseID, d in Days, t in ShiftID) AssignedNotPreferredShiftPenalty(i,d,t)*ShiftAssigned(i,d,t)
+  ShiftOnPenalty := sum(i in NurseID, d in Days, t in ShiftID) ShiftOnPenalty(i,d,t)*(1 - ShiftAssigned(i,d,t))
+  ShiftOffPenalty := sum(i in NurseID, d in Days, t in ShiftID) ShiftOffPenalty(i,d,t)*ShiftAssigned(i,d,t)
   UndercoverPenalty := sum(d in Days, t in ShiftID) UnderstaffedPenalty(d,t)*NursesBelowPreferredCoverage(d,t)
   OvercoverPenalty  := sum(d in Days, t in ShiftID) OverstaffedPenalty(d,t)*NursesAbovePreferredCoverage(d,t)
 

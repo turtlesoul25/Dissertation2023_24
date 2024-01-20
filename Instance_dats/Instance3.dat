@@ -120,7 +120,7 @@ OverstaffedPenalty:
 1 1 1
 ] 
 
-AssignedNotPreferredShiftPenalty: 
+ShiftOffPenalty: 
 [0 0 0
 0 0 0
 0 0 0
@@ -403,7 +403,7 @@ AssignedNotPreferredShiftPenalty:
 0 0 0
 ] 
 
-NotAssignedPreferredShiftPenalty: 
+ShiftOnPenalty: 
 [0 0 0
 0 0 0
 0 0 0

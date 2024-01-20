@@ -38,7 +38,7 @@ model checking_solution
 
 
   ! Choose a dataset
-  dataset := 14
+  dataset := 16
 
   datafname := jointext(["Instance_dats/Instance", dataset, ".dat"], "")
   ! csvfname := jointext(["mmsheet.csv:RosterSolution_post_VNS/VNS_NurseRoster", dataset, ".csv"], "")
@@ -133,13 +133,13 @@ writeln
   ! ----------------------    Objective Function    ---------------------------
   ! Define Objective: to minimize penalties
 
-  ShiftOnPenalty := sum(i in NurseID, d in Days, t in ShiftID) ShiftOnPenalty(i,d,t)*(1 - ShiftAssigned(i,d,t))
-  ShiftOffPenalty := sum(i in NurseID, d in Days, t in ShiftID) ShiftOffPenalty(i,d,t)*ShiftAssigned(i,d,t)
+  ShiftOnRequestPenalty := sum(i in NurseID, d in Days, t in ShiftID) ShiftOnPenalty(i,d,t)*(1 - ShiftAssigned(i,d,t))
+  ShiftOffRequestPenalty := sum(i in NurseID, d in Days, t in ShiftID) ShiftOffPenalty(i,d,t)*ShiftAssigned(i,d,t)
   UndercoverPenalty := sum(d in Days, t in ShiftID) UnderstaffedPenalty(d,t)*NursesBelowPreferredCoverage(d,t)
   OvercoverPenalty  := sum(d in Days, t in ShiftID) OverstaffedPenalty(d,t)*NursesAbovePreferredCoverage(d,t)
   MinMinutesPenalty := sum(i in NurseID) UnderworkedPenalty(i)*UnderMinutes(i)
 
-  TotalPenalty := UndercoverPenalty + OvercoverPenalty  + ShiftOnPenalty + ShiftOffPenalty
+  TotalPenalty := UndercoverPenalty + OvercoverPenalty  + ShiftOnRequestPenalty + ShiftOffRequestPenalty
 
 
   ! ----------------------    Constraints     --------------------------------

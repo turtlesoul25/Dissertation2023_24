@@ -32,7 +32,7 @@
             },
             {
                 "path": "/CheckingSolution.mos",
-                "line": 119,
+                "line": 118,
                 "column": 2,
                 "text": "CheckingSolution.mos",
                 "content": "  UnderworkedPenalty := 1..getsize()",
@@ -41,7 +41,7 @@
             },
             {
                 "path": "/CheckingSolution.mos",
-                "line": 139,
+                "line": 138,
                 "column": 2,
                 "text": "CheckingSolution.mos",
                 "content": "  MinMinutesPenalty := sum(i in NurseID) UnderworkedPenalty(i)*UnderMinutes(i)",
@@ -164,7 +164,7 @@
             "@fullscreen": false,
             "@maximized": false,
             "@minimized": false,
-            "@position": "0:26",
+            "@position": "262:25",
             "@size": "1200:702"
         }
     },
@@ -229,7 +229,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 1130,
+        "@scrollpos": 1108,
         "expanded": {
             "json()": [
                 "/",

@@ -38,7 +38,7 @@ model checking_solution
 
 
   ! Choose a dataset
-  dataset := 21
+  dataset := 3
 
   datafname := jointext(["Instance_dats/Instance", dataset, ".dat"], "")
   ! csvfname := jointext(["mmsheet.csv:RosterSolution_post_VNS/VNS_NurseRoster", dataset, ".csv"], "")

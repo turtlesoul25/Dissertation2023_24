@@ -1,7 +1,7 @@
 model nurse_rostering
   uses "mmxprs", "mmsystem", "kalis"
   setparam("XPRS_MAXTIME", 3600)
-  ! setparam("XPRS_VERBOSE",true)
+  setparam("XPRS_VERBOSE",true)
   ! setparam("XPRS_enummaxsol", 1)
   ! stopoptimise(XPRS_STOP_SOLLIMIT)
   starttime:= gettime
@@ -43,7 +43,7 @@ model nurse_rostering
   ! csvfname := jointext(["RosterSolutions/NurseRoster", dataset, ".csv"], "")
   csvfname := jointext(["NurseRoster", dataset, ".csv"], "")
 
-  initializations from  "model.dat" ! datafname
+  initializations from datafname
     NurseID Days Weekends PlanningHorizon NumWeekends ShiftID  DaysOff ShiftLength MaxShifts
     MaxTotalMinutes MinTotalMinutes MaxConsecutiveShifts MinConsecutiveShifts MinConsecutiveDaysOff
     MaxWeekends PreferredCoverage UnderstaffedPenalty OverstaffedPenalty ForbiddenShifts
@@ -53,13 +53,14 @@ model nurse_rostering
 
   ! ----------------------    Objective Function    ---------------------------
   ! Define Objective: to minimize penalties
-
-  ShiftOnPenalty := sum(i in NurseID, d in Days, t in ShiftID) ShiftOnPenalty(i,d,t)*(1 - ShiftAssigned(i,d,t))
-  ShiftOffPenalty := sum(i in NurseID, d in Days, t in ShiftID) ShiftOffPenalty(i,d,t)*ShiftAssigned(i,d,t)
+  
+  ShiftOnRequestPenalty := sum(i in NurseID, d in Days, t in ShiftID) ShiftOnPenalty(i,d,t)*(1 - ShiftAssigned(i,d,t))
+  ShiftOffRequestPenalty := sum(i in NurseID, d in Days, t in ShiftID) ShiftOffPenalty(i,d,t)*ShiftAssigned(i,d,t)
   UndercoverPenalty := sum(d in Days, t in ShiftID) UnderstaffedPenalty(d,t)*NursesBelowPreferredCoverage(d,t)
   OvercoverPenalty  := sum(d in Days, t in ShiftID) OverstaffedPenalty(d,t)*NursesAbovePreferredCoverage(d,t)
+  ! MinMinutesPenalty := sum(i in NurseID) UnderworkedPenalty(i)*UnderMinutes(i)
 
-  TotalPenalty := UndercoverPenalty + OvercoverPenalty  + ShiftOnPenalty + ShiftOffPenalty
+  TotalPenalty := UndercoverPenalty + OvercoverPenalty  + ShiftOnRequestPenalty + ShiftOffRequestPenalty
 
   ! ----------------------    Constraints     --------------------------------
   ! Define the Constraints
